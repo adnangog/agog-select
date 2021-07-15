@@ -1,0 +1,12 @@
+{
+  "name": "Agog Select",
+  "version": "1.0.0",
+  "description": "",
+  "main": "select.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["js", "javascript", "vanilla js", "form", "html", "css"],
+  "author": "Adnan GÖG",
+  "license": "ISC"
+}
