@@ -32,6 +32,7 @@ for (let ii = 0; ii < items.length; ii++) {
 
         title.appendChild(titleEmpty);
     }
+    
 
     let sub = document.createElement("div");
     sub.classList.add("agog-sub");
