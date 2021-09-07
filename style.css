@@ -12,6 +12,8 @@ body {
     align-items: center;
     justify-content: space-evenly;
     min-height: 100vh;
+    background-color: rgb(236, 99, 19);
+    color:white;
 }
 .container {
     width: 50%;
@@ -20,4 +22,9 @@ body {
     justify-content: center;
     flex-direction: column;
     gap: 10px;
+}
+.agog-select {
+    border-radius: 10px;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, .1);
 }

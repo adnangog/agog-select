@@ -27,8 +27,10 @@
         mainPlaceHolder: 'Lütfen Seçiniz',
         filterPlaceHolder: 'filtrele',
         isMultiple: false,
+        maxItems: null,
+        delimiter: ",",
         callbackBefore: function () {
-            console.log("agogSelect başlatışıyor")
+            console.log("agogSelect başlatılıyor.")
         },
         callbackAfter: function () {
             console.log("agogSelect bitiriliyor.")
@@ -73,7 +75,6 @@
 
         agogSelect.destroy();
 
-        // settings = boz.extend(defaults, options || {});
         settings = Object.assign(defaults, options);
 
         settings.callbackBefore();
@@ -498,6 +499,10 @@
 
         } else {
 
+            if (settings.maxItems && parent.dataset.selected && parent.dataset.selected.split(",").length>=settings.maxItems) {
+                return false;
+            }
+
             let selectedItems = [];
             let selectedItemsText = [];
 
@@ -526,7 +531,7 @@
             }
 
             parent.children[0].querySelector("span").innerHTML = itemHtml || items[sIndex].getAttribute("aria-placeholder") || settings.mainPlaceHolder;
-            parent.dataset.selected = selectedItems.join(",");
+            parent.dataset.selected = selectedItems.join(settings.delimiter);
 
             let tags = document.querySelectorAll(".agog-tag-close");
 

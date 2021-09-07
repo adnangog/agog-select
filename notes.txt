@@ -1,0 +1,9 @@
+eklenecekler
+
+- multiple'da delete tuşu ile son eklenen silinebilecek.
+- yön tuşları ile option seçimi
+
+
+hatalar
+
+- multiple filtre alanında enter'a basılınca listedeki ilk elemanın seçilmesi
