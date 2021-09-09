@@ -23,7 +23,7 @@ body {
     flex-direction: column;
     gap: 10px;
 }
-.agog-select {
+.agogSelect-select {
     border-radius: 10px;
     padding: 10px;
     background-color: rgba(255, 255, 255, .1);
