@@ -17,23 +17,21 @@
 
     // Varsayılan ayarlar
     var defaults = {
-        selector: 'select',
-        mainClass: 'agog-select',
-        titleClass: 'agog-title',
-        emptyClass: 'agog-empty',
-        subClass: 'agog-sub',
-        searchClass: 'agog-search',
-        clearClass: 'agog-clear',
-        mainPlaceHolder: 'Lütfen Seçiniz',
-        filterPlaceHolder: 'filtrele',
+        selector: '[data-agog-select]',
+        mainClass: 'agogSelect-select',
+        titleClass: 'agogSelect-title',
+        emptyClass: 'agogSelect-empty',
+        subClass: 'agogSelect-sub',
+        searchClass: 'agogSelect-search',
+        clearClass: 'agogSelect-clear',
+        mainPlaceHolder: 'Please select',
+        filterPlaceHolder: 'filter',
         isMultiple: false,
         maxItems: null,
         delimiter: ",",
         callbackBefore: function () {
-            console.log("agogSelect başlatılıyor.")
         },
         callbackAfter: function () {
-            console.log("agogSelect bitiriliyor.")
         }
     };
 
@@ -247,76 +245,7 @@
                 for (let index = 0; index < childItems.length; index++) {
 
 
-                    if (childItems[index].tagName === "SPAN") {
-                        // childItems[index].addEventListener('click', function (event) {
-
-                        //     if (!isMultiple) {
-                        //         item.children[0].querySelector("span").innerHTML = event.target.innerHTML;
-                        //         item.dataset.selected = event.target.dataset.value;
-
-                        //         item.children[0].querySelector("span." + settings.emptyClass).style.display = "block";
-
-                        //         for (let z = 0; z < options.length; z++) {
-                        //             if (options[z].value === event.target.dataset.value) {
-                        //                 options[z].selected = true;
-                        //             } else {
-                        //                 options[z].selected = false;
-                        //             }
-                        //         }
-
-                        //         for (let z = 0; z < childItems.length; z++) {
-                        //             childItems[z].classList.remove("active");
-                        //         }
-
-                        //         event.target.classList.add("active");
-
-                        //     } else {
-
-                        //         let selectedItems = [];
-                        //         let selectedItemsText = [];
-
-                        //         for (let z = 0; z < options.length; z++) {
-                        //             if (options[z].value === event.target.dataset.value) {
-                        //                 if (options[z].selected) {
-                        //                     options[z].selected = false;
-                        //                     event.target.classList.remove("active");
-                        //                 } else {
-                        //                     options[z].selected = true;
-                        //                     event.target.classList.add("active");
-                        //                 }
-                        //             }
-
-                        //             if (options[z].selected) {
-                        //                 selectedItems.push(options[z].value);
-                        //                 selectedItemsText.push(options[z].innerHTML);
-                        //             }
-                        //         }
-
-                        //         let itemHtml = "";
-
-                        //         for (let k = 0; k < selectedItemsText.length; k++) {
-                        //             itemHtml = itemHtml + "<div class='agog-tag'>" + selectedItemsText[k] + "<div class='agog-tag-close' data-value='" + selectedItems[k] + "'><i class='fas fa-times'></i></div></div>";
-
-                        //         }
-
-                        //         item.children[0].querySelector("span").innerHTML = itemHtml || items[sIndex].getAttribute("aria-placeholder") || settings.mainPlaceHolder;
-                        //         item.dataset.selected = selectedItems.join(",");
-
-                        //         let tags = document.querySelectorAll(".agog-tag-close");
-
-                        //         for (let tIndex = 0; tIndex < tags.length; tIndex++) {
-                        //             const tag = tags[tIndex];
-
-                        //             tag.addEventListener('click', function (e) {
-                        //                 let tagId = e.target.dataset.value || e.target.parentNode.dataset.value;
-                        //                 document.querySelector("." + settings.subClass + " span[data-value='" + tagId + "']").click();
-                        //                 e.stopPropagation();
-                        //             })
-
-                        //         }
-                        //     }
-                        // })
-                    } else {
+                    if (childItems[index].tagName !== "SPAN") {
 
                         childItems[index].children[0].addEventListener('keyup', function (event) {
                             agogSelect.itemsFilter(childItems, event);
@@ -526,14 +455,14 @@
             let itemHtml = "";
 
             for (let k = 0; k < selectedItemsText.length; k++) {
-                itemHtml = itemHtml + "<div class='agog-tag'>" + selectedItemsText[k] + "<div class='agog-tag-close' data-value='" + selectedItems[k] + "'><i class='fas fa-times'></i></div></div>";
+                itemHtml = itemHtml + "<div class='agogSelect-tag'>" + selectedItemsText[k] + "<div class='agogSelect-tag-close' data-value='" + selectedItems[k] + "'><i class='fas fa-times'></i></div></div>";
 
             }
 
             parent.children[0].querySelector("span").innerHTML = itemHtml || items[sIndex].getAttribute("aria-placeholder") || settings.mainPlaceHolder;
             parent.dataset.selected = selectedItems.join(settings.delimiter);
 
-            let tags = document.querySelectorAll(".agog-tag-close");
+            let tags = document.querySelectorAll(".agogSelect-tag-close");
 
             for (let tIndex = 0; tIndex < tags.length; tIndex++) {
                 const tag = tags[tIndex];
