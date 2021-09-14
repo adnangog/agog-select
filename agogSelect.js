@@ -317,7 +317,7 @@
     agogSelect.itemsFilter = function (elements, event) {
 
         if (event && event.keyCode === 13 && event.target.value.length > 0) {
-            let firstItem = Array.from(elements).filter(function (x) { x.innerHTML.toLocaleLowerCase().indexOf(event.target.value) > -1 });
+            let firstItem = Array.from(elements).filter(function (x) { x.innerHTML.toLocaleLowerCase().indexOf(event.target.value.toLocaleLowerCase()) > -1 });
             if (firstItem[0])
                 firstItem[0].click();
         }
